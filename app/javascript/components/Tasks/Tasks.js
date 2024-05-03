@@ -1,10 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Task from './Task'
+import Modal from '../Modal'
+import addIcon from "../images/plus_icon.png";
 
 function Tasks() {
     const [tasks, setTasks] = useState([])
     const [task, setTask] = useState({})
+    const [openModal, setOpenModal] = useState(false)
 
     function getTasks() {
         axios.get('/api/v1/tasks')
@@ -36,6 +39,7 @@ function Tasks() {
         axios.post('/api/v1/tasks', task)
             .then(resp => {
                 getTasks()
+                setOpenModal(false)
             })
             .catch((error) => {
                 console.error(error);
@@ -84,7 +88,6 @@ function Tasks() {
         axios.delete('/api/v1/tasks/' + taskId)
             .then((resp) => {
                 getTasks()
-                alert('Task deleted successfully')
             })
             .catch((error) => {
                 console.error(error);
@@ -110,10 +113,12 @@ function Tasks() {
     return (
         <div className="container">
             <ul>{list}</ul>
-            <form onSubmit={handleFormSubmit}>
-                <input onChange={handleFormChange} type="text" name="description"/>
-                <button type="submit">Add Task</button>
-            </form>
+            <div>
+                <button onClick={() => setOpenModal(true)} className='modal_button'>
+                    <img src={addIcon} alt="add icon"/>
+                </button>
+                <Modal handleFormSubmit={handleFormSubmit} handleFormChange={handleFormChange} open={openModal} onClose={() => setOpenModal(false)} />
+            </div>
         </div>
     )
 }

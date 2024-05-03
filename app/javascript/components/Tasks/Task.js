@@ -1,3 +1,4 @@
+import deleteIcon from '../images/delete_icon.png'
 import React, {useState} from 'react'
 
 function Task(props) {
@@ -38,7 +39,9 @@ function Task(props) {
             ) : (
                 <span onClick={() => handleClick()}>{props.description}</span>
             )}
-            <button type="button" onClick={() => {props.handleDelete(props.taskId)}}>Delete</button>
+            <button type="button" className="delete_icon" onClick={() => {props.handleDelete(props.taskId)}}>
+                <img src={deleteIcon} alt="delete icon"/>
+            </button>
         </div>
     )
 }

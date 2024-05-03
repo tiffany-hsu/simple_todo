@@ -1,7 +1,11 @@
-.page-wrapper{
-  margin: 20px 20px;
+body{
+  background-color: #faecd8;
+}
 
-  h1, p, span, button {
+.page_wrapper{
+  margin: 50px 50px;
+
+  h1, h3, p, span, button {
     font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
   }
 
@@ -9,13 +13,65 @@
     margin: 3px 5px;
   }
 
-  button{
-    border-radius: 4px;
-    background-color: #f8f2fc;
-    margin-left: 5px;
-  }
-
   form{
     padding-left: 48px;
+  }
+
+  .checkbox_container input{
+    accent-color: #6bd0cc;
+  }
+
+  .delete_icon{
+    background: none;
+    border: none;
+    padding: 0;
+    vertical-align: middle;
+
+    img{
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+
+  .modal_button {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    background: none;
+    border: none;
+    img{
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  // Modal styling
+  .modal_container {
+    max-width: 450px;
+    width: 100%;
+    padding: 30px;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+
+    .task_submit{
+      background-color: #6bd0cc;
+      border-radius: 4px;
+      border-width: thin;
+      margin-left: 20px;
+    }
+
+    .delete_icon{
+      position: fixed;
+      left: 7px;
+      top: 7px;
+    }
   }
 }

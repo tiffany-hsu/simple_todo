@@ -1,0 +1,21 @@
+.page-wrapper{
+  margin: 20px 20px;
+
+  h1, p, span, button {
+    font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+  }
+
+  .list_item{
+    margin: 3px 5px;
+  }
+
+  button{
+    border-radius: 4px;
+    background-color: #f8f2fc;
+    margin-left: 5px;
+  }
+
+  form{
+    padding-left: 48px;
+  }
+}
